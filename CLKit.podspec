@@ -26,21 +26,21 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'KKBaseButton' do |ss|
-    ss.source_files = 'CLKitDemo/KKBaseButton.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKBaseButton.h'
+    ss.source_files = 'CLKitDemo/KKKit/KKBaseButton/*.{h,m}'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseButton/KKBaseButton.h'
   end
 
   s.subspec 'KKBaseLabel' do |ss|
-    ss.source_files = 'CLKitDemo/KKBaseLabel.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKBaseLabel.h'
+    ss.source_files = 'CLKitDemo/KKKit/KKBaseLabel/*.{h,m}'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseLabel/KKBaseLabel.h'
   end
   s.subspec 'KKBaseAlertView' do |ss|
-    ss.source_files = 'CLKitDemo/KKBaseAlertView.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKBaseAlertView.h'
+    ss.source_files = 'CLKitDemo/KKKit/KKBaseAlertView/*.{h,m}'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseAlertView/KKBaseAlertView.h'
   end
   s.subspec 'KKBaseActionSheet' do |ss|
-    ss.source_files = 'CLKitDemo/KKBaseActionSheet.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKBaseActionSheet.h'
+    ss.source_files = 'CLKitDemo/KKKit/KKBaseActionSheet/*.{h,m}'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseActionSheet/KKBaseActionSheet.h'
   end
 
 

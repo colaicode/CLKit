@@ -18,21 +18,21 @@
  *  @param buttons 按钮数组
  *  @param block   回调
  */
-+(UIAlertView*)showAlert:(NSString*)message buttons:(NSArray*)buttons complete:(void(^)(NSUInteger buttonIndex))block;
++(UIAlertView*)showAlert:(NSString*)message buttons:(NSArray*)buttons complete:(void(^)(NSInteger buttonIndex))block;
 /**
  *  alert 包含确定按钮
  *
  *  @param message message
  *  @param block   回调
  */
-+(void)showAlert:(NSString *)message complete:(void (^)(NSUInteger))block;
++(void)showAlert:(NSString *)message complete:(void (^)(NSInteger))block;
 /**
  *  alert 包含取消和确定按钮
  *
  *  @param message message
  *  @param block   回调
  */
-+(void)showSelectAlert:(NSString *)message complete:(void (^)(NSUInteger))block;
++(void)showSelectAlert:(NSString *)message complete:(void (^)(NSInteger))block;
 /**
  *  alert
  *
@@ -41,7 +41,7 @@
  *  @param buttons 按钮数组
  *  @param block   回调
  */
-+(void)showAlertWithTitle:(NSString*)title  message:(NSString*)message buttons:(NSArray*)buttons complete:(void(^)(NSUInteger buttonIndex))block;
++(void)showAlertWithTitle:(NSString*)title  message:(NSString*)message buttons:(NSArray*)buttons complete:(void(^)(NSInteger buttonIndex))block;
 
 
 @end

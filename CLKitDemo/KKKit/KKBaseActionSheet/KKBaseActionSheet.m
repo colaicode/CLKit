@@ -18,8 +18,7 @@ static const NSString* BaseActionSheet_Key = @"BaseActionSheetKey";
 
 @implementation KKBaseActionSheet
 
-+(void)showActionSheet:(NSString *)title buttons:(NSArray *)buttons complete:(void (^)(NSInteger))block
-{
++(void)showActionSheet:(NSString *)title buttons:(NSArray *)buttons complete:(void (^)(NSInteger))block {
     KKBaseActionSheet* baseView = [self new];
     if (block) {
         baseView.KKBaseActionSheetBlock = block;
@@ -33,17 +32,12 @@ static const NSString* BaseActionSheet_Key = @"BaseActionSheetKey";
     objc_setAssociatedObject(actionSheet.delegate, &BaseActionSheet_Key, baseView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     KKBaseActionSheet* handler = objc_getAssociatedObject(actionSheet.delegate, &BaseActionSheet_Key);
     if (handler.KKBaseActionSheetBlock)
         handler.KKBaseActionSheetBlock(buttonIndex);
     objc_removeAssociatedObjects(actionSheet.delegate);
 }
 
--(void)dealloc
-{
-    NSLog(@"%s",__func__);
-}
 
 @end

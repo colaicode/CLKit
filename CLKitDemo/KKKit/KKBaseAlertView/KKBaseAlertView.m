@@ -16,13 +16,12 @@ static const NSString* BaseAlert_Key = @"BaseAlertKey";
 #define DETAULT_ALERTVIEW_CANCEL_TEXT                 @"取消"
 
 @interface KKBaseAlertView ()<UIAlertViewDelegate>
-@property (nonatomic, copy)void(^KKBaseAlertViewBlock)(NSUInteger buttonIndex);
+@property (nonatomic, copy)void(^KKBaseAlertViewBlock)(NSInteger buttonIndex);
 @end
 
 @implementation KKBaseAlertView
 
-+(UIAlertView*)showAlert:(NSString *)message buttons:(NSArray *)buttons complete:(void (^)(NSUInteger))block
-{
++(UIAlertView*)showAlert:(NSString *)message buttons:(NSArray *)buttons complete:(void (^)(NSInteger))block {
     KKBaseAlertView* baseView = [self new];
     if(block) {
         baseView.KKBaseAlertViewBlock = block;
@@ -37,17 +36,15 @@ static const NSString* BaseAlert_Key = @"BaseAlertKey";
     return alert;
 }
 
-+(void)showAlert:(NSString *)message complete:(void (^)(NSUInteger))block
-{
++(void)showAlert:(NSString *)message complete:(void (^)(NSInteger))block {
     [[self class] showAlert:message buttons:@[DETAULT_ALERTVIEW_CONFIRM_TEXT] complete:block];
 }
 
-+(void)showSelectAlert:(NSString *)message complete:(void (^)(NSUInteger))block
-{
++(void)showSelectAlert:(NSString *)message complete:(void (^)(NSInteger))block {
     [[self class] showAlert:message buttons:@[DETAULT_ALERTVIEW_CONFIRM_TEXT,DETAULT_ALERTVIEW_CANCEL_TEXT] complete:block];
 }
 
-+(void)showAlertWithTitle:(NSString *)title message:(NSString *)message buttons:(NSArray *)buttons complete:(void (^)(NSUInteger))block {
++(void)showAlertWithTitle:(NSString *)title message:(NSString *)message buttons:(NSArray *)buttons complete:(void (^)(NSInteger))block {
     KKBaseAlertView* baseView = [self new];
     if(block) {
         baseView.KKBaseAlertViewBlock = block;
@@ -63,8 +60,7 @@ static const NSString* BaseAlert_Key = @"BaseAlertKey";
 }
 
 #pragma mark --------------- UIAlertViewDelegate ---------------
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     KKBaseAlertView* handler = objc_getAssociatedObject(alertView.delegate, &BaseAlert_Key);
     if (handler.KKBaseAlertViewBlock)
         handler.KKBaseAlertViewBlock(buttonIndex);

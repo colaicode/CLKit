@@ -8,56 +8,90 @@
 
 #import "KKBaseLabel.h"
 
-#define LABEL_DEFAULT_COLOR            [UIColor whiteColor]
-
 @implementation KKBaseLabel
 
--(instancetype)init
-{
+-(instancetype)init {
     self = [super init];
     if (self) {
-        self.numberOfLines = 0;
-        self.textAlignment = NSTextAlignmentCenter;
-        self.lineBreakMode = NSLineBreakByTruncatingTail;
-        self.textColor = LABEL_DEFAULT_COLOR;
+        self.labelNumOfLines(0).labelAlignment(NSTextAlignmentCenter);
     }
     return self;
 }
 
--(instancetype)initHeadlineLabel
-{
-    self = [self init];
-    if (self) {
-        self.font = [UIFont systemFontOfSize:18];
-    }
-    return self;
+-(KKBaseLabel *(^)(NSTextAlignment))labelAlignment {
+    return ^KKBaseLabel*(NSTextAlignment al){
+        self.textAlignment = al;
+        return self;
+    };
 }
 
--(instancetype)initSubheadlineLable
-{
-    self = [self init];
-    if (self) {
-        self.font = [UIFont systemFontOfSize:14];
-    }
-    return self;
+-(KKBaseLabel *(^)(CGRect))labelFrame {
+    return ^KKBaseLabel*(CGRect rect){
+        self.frame = rect;
+        return self;
+    };
 }
 
--(instancetype)initBodyLabel
-{
-    self = [self init];
-    if (self) {
-        self.font = [UIFont systemFontOfSize:12];
-    }
-    return self;
+-(KKBaseLabel *(^)(NSInteger))labelNumOfLines {
+    return ^KKBaseLabel*(NSInteger num){
+        self.numberOfLines = num;
+        return self;
+    };
 }
 
--(instancetype)initFootnoteLabel
-{
-    self = [self init];
-    if (self) {
-        self.font = [UIFont systemFontOfSize:10];
-    }
-    return self;
+-(KKBaseLabel *(^)(NSString *))labelText {
+    return ^KKBaseLabel*(NSString* text){
+        self.text = text;
+        return self;
+    };
 }
+
+-(KKBaseLabel *(^)(UIColor *))labelTextColor {
+    return ^KKBaseLabel*(UIColor* color){
+        self.textColor = color;
+        return self;
+    };
+}
+
+-(KKBaseLabel *(^)(UIColor *))labelBgColor {
+    return ^KKBaseLabel*(UIColor* color){
+        self.backgroundColor = color;
+        return self;
+    };
+}
+
+-(KKBaseLabel *(^)(UIFont *))labelTextFont {
+    return ^KKBaseLabel*(UIFont *font){
+        self.font = font;
+        return self;
+    };
+}
+
++(instancetype)label {
+    return [[[self class] alloc] init];
+}
+
++(instancetype)labelWithFont:(UIFont *)font {
+    KKBaseLabel* label = [[self class] label];
+    label.font = font;
+    return label;
+}
+
++(instancetype)headlineLabel {
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:18]];
+}
+
++(instancetype)subheadlineLable {
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:14]];
+}
+
++(instancetype)bodyLabel {
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:12]];
+}
+
++(instancetype)footnoteLabel {
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:10]];
+}
+
 
 @end

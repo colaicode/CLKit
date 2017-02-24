@@ -11,29 +11,51 @@
  *  UILabel 基类
  */
 @interface KKBaseLabel : UILabel
+
+-(KKBaseLabel*(^)(NSTextAlignment alignment))labelAlignment;
+
+-(KKBaseLabel*(^)(CGRect frame))labelFrame;
+
+-(KKBaseLabel*(^)(NSInteger num))labelNumOfLines;
+
+-(KKBaseLabel*(^)(NSString* text))labelText;
+
+-(KKBaseLabel*(^)(UIColor* color))labelTextColor;
+
+-(KKBaseLabel*(^)(UIColor* color))labelBgColor;
+
+-(KKBaseLabel*(^)(UIFont* font))labelTextFont;
+
++(instancetype)label;
+
++(instancetype)labelWithFont:(UIFont*)font;
+
 /**
  *  初始化lable font:18
  *
  *  @return label
  */
--(instancetype)initHeadlineLabel;
++(instancetype)headlineLabel;
+
 /**
  *  初始化lable font:14
  *
  *  @return label
  */
--(instancetype)initSubheadlineLable;
++(instancetype)subheadlineLable;
+
 /**
  *  初始化lable font:12
  *
  *  @return label
  */
--(instancetype)initBodyLabel;
++(instancetype)bodyLabel;
+
 /**
  *  初始化lable font:10
  *
  *  @return label
  */
--(instancetype)initFootnoteLabel;
++(instancetype)footnoteLabel;
 
 @end

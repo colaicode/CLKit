@@ -9,7 +9,6 @@
 #import "KKBaseButton.h"
 #import <objc/runtime.h>
 
-#define BUTTON_DEFAULT_COLOR            [UIColor blackColor]
 #define BUTTON_DEFUALT_FONT             [UIFont systemFontOfSize:14]
 
 @interface KKBaseButtonTarget : NSObject
@@ -45,47 +44,30 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
 
 @implementation KKBaseButton
 
-+(instancetype)buttonWithTitle:(NSString *)title actionBlock:(void (^)(id sender))block {
-    KKBaseButton* button = [[self class] buttonWithType:UIButtonTypeCustom];
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:BUTTON_DEFAULT_COLOR forState:UIControlStateNormal];
-    button.titleLabel.font = BUTTON_DEFUALT_FONT;
-    [[self class] addAction:block button:button];
-    return button;
+#pragma mark --------------------private--------------------
+-(UIImage*)kkButtonImage:(id)arg {
+    UIImage* image;
+    if ([arg isKindOfClass:[NSString class]]) {
+        image = [UIImage imageNamed:(NSString*)arg];
+    } else {
+        image = (UIImage*)arg;
+    }
+    return image;
 }
 
-+(instancetype)buttonWithBackgroudImage:(UIImage *)image actionBlock:(void (^)(id sender))block {
-    KKBaseButton* button = [[self class] buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    [[self class] addAction:block button:button];
-    button.titleLabel.font = BUTTON_DEFUALT_FONT;
-    return button;
+-(void)kkButtonImage:(id)arg state:(UIControlState)state {
+    [self setImage:[self kkButtonImage:arg] forState:state];
 }
 
-+(instancetype)buttonWithImage:(UIImage *)image actionBlock:(void (^)(id sender))block{
-    KKBaseButton* button = [[self class] buttonWithType:UIButtonTypeCustom];
-    [button setImage:image forState:UIControlStateNormal];
-    button.titleLabel.font = BUTTON_DEFUALT_FONT;
-    [[self class] addAction:block button:button];
-    return button;
+-(void)kkButtonBackgroundImage:(id)arg state:(UIControlState)state {
+    [self setBackgroundImage:[self kkButtonImage:arg] forState:state];
 }
 
-+(instancetype)buttonWithImage:(UIImage *)image title:(NSString *)title actionBlock:(void (^)(id sender))block {
-    KKBaseButton* button = [[self class] buttonWithType:UIButtonTypeCustom];
-    [button setImage:image forState:UIControlStateNormal];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.titleLabel.font = BUTTON_DEFUALT_FONT;
-    [[self class] addAction:block button:button];
-    return button;
-}
-
-+(instancetype)buttonWithBackgroudImage:(UIImage *)image title:(NSString *)title actionBlock:(void (^)(id sender))block {
-    KKBaseButton* button = [[self class] buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.titleLabel.font = BUTTON_DEFUALT_FONT;
-    [[self class] addAction:block button:button];
-    return button;
+-(void)kkButtonAction:(UIControlEvents)event action:(void (^)(id sender))action{
+    KKBaseButtonTarget* target = [[KKBaseButtonTarget alloc] initWithBlock:action];
+    [self addTarget:target action:@selector(baseButtonAction:) forControlEvents:event];
+    NSPointerArray *targets = [self allUIControlBlockTargets];
+    [targets addPointer:(__bridge void * _Nullable)(target)];
 }
 
 +(void)addAction:(void (^)(id sender))block button:(KKBaseButton*)button {
@@ -95,13 +77,146 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
     [targets addPointer:(__bridge void * _Nullable)(target)];
 }
 
-+(NSPointerArray *)allUIControlBlockTargets {
+-(NSPointerArray *)allUIControlBlockTargets {
     NSPointerArray *targets = objc_getAssociatedObject(self, &KKBaseButton_Key);
     if (!targets) {
         targets = [NSPointerArray strongObjectsPointerArray];
         objc_setAssociatedObject(self, &KKBaseButton_Key, targets, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return targets;
+}
+
+#pragma mark --------------------public--------------------
+#pragma mark --------------------链式--------------------
++(instancetype)button {
+    return [[self class] buttonWithType:UIButtonTypeCustom];
+}
+
++(instancetype)buttonWithTitle:(NSString *)title {
+    KKBaseButton* button = [KKBaseButton button].normalTitle(title);
+    return button;
+}
+
++(instancetype)buttonWithDefaultFont:(NSString *)title {
+    KKBaseButton* button = [KKBaseButton button].normalTitle(title).titleFont(BUTTON_DEFUALT_FONT);
+    return button;
+}
+
++(instancetype)buttonWithImage:(UIImage *)image {
+    return [KKBaseButton button].normalImage(image);
+}
+
++(instancetype)buttonWithBackgroundImage:(UIImage *)image {
+    return [KKBaseButton button].normalBackgourndImage(image);
+}
+
+-(KKBaseButton *(^)(CGRect))buttonFrame {
+    return ^KKBaseButton*(CGRect frame){
+        self.frame = frame;
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(NSString *))normalTitle {
+    return ^KKBaseButton*(NSString* title){
+        [self setTitle:title forState:UIControlStateNormal];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(NSString *))selectTitle {
+    return ^KKBaseButton*(NSString* title){
+        [self setTitle:title forState:UIControlStateSelected];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(UIColor *))normalTitleColor {
+    return ^KKBaseButton*(UIColor* color){
+        [self setTitleColor:color forState:UIControlStateNormal];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(UIColor *))selectTitleColor {
+    return ^KKBaseButton*(UIColor* color){
+        [self setTitleColor:color forState:UIControlStateSelected];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(UIFont *))titleFont {
+    return ^KKBaseButton*(UIFont* font){
+        self.titleLabel.font = font;
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(id))normalImage {
+    return ^KKBaseButton*(id arg){
+        [self kkButtonImage:arg state:UIControlStateNormal];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(id))selectImage {
+    return ^KKBaseButton*(id arg){
+        [self kkButtonImage:arg state:UIControlStateSelected];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(id))normalBackgourndImage {
+    return ^KKBaseButton*(id arg){
+        [self kkButtonBackgroundImage:arg state:UIControlStateNormal];
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(id))selectBackgourndImage {
+    return ^KKBaseButton*(id arg){
+        [self kkButtonBackgroundImage:arg state:UIControlStateSelected];
+        return self;
+    };
+}
+
+-(void)upInsideAction:(void(^)(KKBaseButton *))action {
+    [self kkButtonAction:UIControlEventTouchUpInside action:action];
+}
+
+-(void)action:(UIControlEvents)event callBack:(void (^)(KKBaseButton *))action {
+    [self kkButtonAction:event action:action];
+}
+
+#pragma mark --------------------普通方法--------------------
++(instancetype)buttonWithTitle:(NSString *)title actionBlock:(void (^)(KKBaseButton* sender))block {
+    KKBaseButton* button = [KKBaseButton buttonWithDefaultFont:title];
+    [button kkButtonAction:UIControlEventTouchUpInside action:block];
+    return button;
+}
+
++(instancetype)buttonWithImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block{
+    KKBaseButton* button = [KKBaseButton buttonWithImage:image];
+    [button kkButtonAction:UIControlEventTouchUpInside action:block];
+    return button;
+}
+
++(instancetype)buttonWithImage:(id)image title:(NSString *)title actionBlock:(void (^)(KKBaseButton* sender))block {
+    KKBaseButton* button =  [KKBaseButton buttonWithImage:image].normalTitle(title).titleFont(BUTTON_DEFUALT_FONT);
+    [button kkButtonAction:UIControlEventTouchUpInside action:block];
+    return button;
+}
+
++(instancetype)buttonWithBackgroudImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block {
+    KKBaseButton* button =  [KKBaseButton buttonWithBackgroundImage:image];
+    [button kkButtonAction:UIControlEventTouchUpInside action:block];
+    return button;
+}
+
++(instancetype)buttonWithBackgroudImage:(id)image title:(NSString *)title actionBlock:(void (^)(KKBaseButton* ))block {
+    KKBaseButton* button = [KKBaseButton buttonWithBackgroudImage:image actionBlock:block].normalTitle(title).titleFont(BUTTON_DEFUALT_FONT);
+    [button kkButtonAction:UIControlEventTouchUpInside action:block];
+    return button;
 }
 
 -(void)dealloc {

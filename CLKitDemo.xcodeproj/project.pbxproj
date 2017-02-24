@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229D4B431E6005100040BC97 /* ButtonDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4B421E6005100040BC97 /* ButtonDemoViewController.m */; };
+		229D4B461E601DB70040BC97 /* LabelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4B451E601DB70040BC97 /* LabelDemoViewController.m */; };
 		22A129BC1E5FE09D00851B98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129BB1E5FE09D00851B98 /* main.m */; };
 		22A129BF1E5FE09D00851B98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129BE1E5FE09D00851B98 /* AppDelegate.m */; };
 		22A129C21E5FE09D00851B98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129C11E5FE09D00851B98 /* ViewController.m */; };
-		22A129C51E5FE09D00851B98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A129C31E5FE09D00851B98 /* Main.storyboard */; };
 		22A129C71E5FE09D00851B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A129C61E5FE09D00851B98 /* Assets.xcassets */; };
 		22A129CA1E5FE09D00851B98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A129C81E5FE09D00851B98 /* LaunchScreen.storyboard */; };
 		22A129DF1E5FE0C200851B98 /* KKBaseActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129D41E5FE0C200851B98 /* KKBaseActionSheet.m */; };
@@ -20,13 +21,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		229D4B411E6005100040BC97 /* ButtonDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonDemoViewController.h; sourceTree = "<group>"; };
+		229D4B421E6005100040BC97 /* ButtonDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonDemoViewController.m; sourceTree = "<group>"; };
+		229D4B441E601DB70040BC97 /* LabelDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelDemoViewController.h; sourceTree = "<group>"; };
+		229D4B451E601DB70040BC97 /* LabelDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDemoViewController.m; sourceTree = "<group>"; };
 		22A129B71E5FE09D00851B98 /* CLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A129BB1E5FE09D00851B98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22A129BD1E5FE09D00851B98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22A129BE1E5FE09D00851B98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		22A129C01E5FE09D00851B98 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		22A129C11E5FE09D00851B98 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		22A129C41E5FE09D00851B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22A129C61E5FE09D00851B98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22A129C91E5FE09D00851B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22A129CB1E5FE09D00851B98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +80,10 @@
 				22A129BE1E5FE09D00851B98 /* AppDelegate.m */,
 				22A129C01E5FE09D00851B98 /* ViewController.h */,
 				22A129C11E5FE09D00851B98 /* ViewController.m */,
-				22A129C31E5FE09D00851B98 /* Main.storyboard */,
+				229D4B441E601DB70040BC97 /* LabelDemoViewController.h */,
+				229D4B451E601DB70040BC97 /* LabelDemoViewController.m */,
+				229D4B411E6005100040BC97 /* ButtonDemoViewController.h */,
+				229D4B421E6005100040BC97 /* ButtonDemoViewController.m */,
 				22A129C61E5FE09D00851B98 /* Assets.xcassets */,
 				22A129C81E5FE09D00851B98 /* LaunchScreen.storyboard */,
 				22A129CB1E5FE09D00851B98 /* Info.plist */,
@@ -201,7 +208,6 @@
 			files = (
 				22A129CA1E5FE09D00851B98 /* LaunchScreen.storyboard in Resources */,
 				22A129C71E5FE09D00851B98 /* Assets.xcassets in Resources */,
-				22A129C51E5FE09D00851B98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +222,9 @@
 				22A129E01E5FE0C200851B98 /* KKBaseAlertView.m in Sources */,
 				22A129BF1E5FE09D00851B98 /* AppDelegate.m in Sources */,
 				22A129DF1E5FE0C200851B98 /* KKBaseActionSheet.m in Sources */,
+				229D4B461E601DB70040BC97 /* LabelDemoViewController.m in Sources */,
 				22A129E21E5FE0C200851B98 /* KKBaseLabel.m in Sources */,
+				229D4B431E6005100040BC97 /* ButtonDemoViewController.m in Sources */,
 				22A129E11E5FE0C200851B98 /* KKBaseButton.m in Sources */,
 				22A129BC1E5FE09D00851B98 /* main.m in Sources */,
 			);
@@ -225,14 +233,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		22A129C31E5FE09D00851B98 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				22A129C41E5FE09D00851B98 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		22A129C81E5FE09D00851B98 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -9,10 +9,10 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
-  封装了常用的控件，如button、label、alertView、actionSheet等
+  封装了常用的控件，如button、label、alertView、actionSheet等,提供链式语法
                    DESC
 
   s.homepage     = "https://github.com/colaicode/CLKit"

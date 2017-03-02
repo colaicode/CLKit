@@ -106,8 +106,8 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
     return [KKBaseButton button].normalImage(image);
 }
 
-+(instancetype)buttonWithBackgroundImage:(UIImage *)image {
-    return [KKBaseButton button].normalBackgourndImage(image);
++(instancetype)buttonWithBgImage:(UIImage *)image {
+    return [KKBaseButton button].normalBgImage(image);
 }
 
 -(KKBaseButton *(^)(CGRect))buttonFrame {
@@ -145,9 +145,16 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
     };
 }
 
--(KKBaseButton *(^)(UIFont *))titleFont {
-    return ^KKBaseButton*(UIFont* font){
-        self.titleLabel.font = font;
+-(KKBaseButton *(^)(UIColor *))bgColor {
+    return ^KKBaseButton*(UIColor* color){
+        self.backgroundColor = color;
+        return self;
+    };
+}
+
+-(KKBaseButton *(^)(id))titleFont {
+    return ^KKBaseButton*(id font){
+        self.titleLabel.font = [font isKindOfClass:[UIFont class]]?font:[UIFont systemFontOfSize:[font floatValue]];
         return self;
     };
 }
@@ -166,14 +173,14 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
     };
 }
 
--(KKBaseButton *(^)(id))normalBackgourndImage {
+-(KKBaseButton *(^)(id))normalBgImage {
     return ^KKBaseButton*(id arg){
         [self kkButtonBackgroundImage:arg state:UIControlStateNormal];
         return self;
     };
 }
 
--(KKBaseButton *(^)(id))selectBackgourndImage {
+-(KKBaseButton *(^)(id))selectBgImage {
     return ^KKBaseButton*(id arg){
         [self kkButtonBackgroundImage:arg state:UIControlStateSelected];
         return self;
@@ -207,16 +214,21 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
     return button;
 }
 
-+(instancetype)buttonWithBackgroudImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block {
-    KKBaseButton* button =  [KKBaseButton buttonWithBackgroundImage:image];
++(instancetype)buttonWithBgImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block {
+    KKBaseButton* button =  [KKBaseButton buttonWithBgImage:image];
     [button kkButtonAction:UIControlEventTouchUpInside action:block];
     return button;
 }
 
-+(instancetype)buttonWithBackgroudImage:(id)image title:(NSString *)title actionBlock:(void (^)(KKBaseButton* ))block {
-    KKBaseButton* button = [KKBaseButton buttonWithBackgroudImage:image actionBlock:block].normalTitle(title).titleFont(BUTTON_DEFUALT_FONT);
++(instancetype)buttonWithBgImage:(id)image title:(NSString *)title actionBlock:(void (^)(KKBaseButton* ))block {
+    KKBaseButton* button = [KKBaseButton buttonWithBgImage:image actionBlock:block].normalTitle(title).titleFont(BUTTON_DEFUALT_FONT);
     [button kkButtonAction:UIControlEventTouchUpInside action:block];
     return button;
+}
+
+-(void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    NSLog(@"%@",self);
 }
 
 -(void)dealloc {

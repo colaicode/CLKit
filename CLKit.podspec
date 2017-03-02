@@ -9,10 +9,10 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
-  封装了常用的控件，如button、label、alertView、actionSheet等,提供链式语法
+  封装了常用的控件，如button、label、textfield、alertView、actionSheet等,提供链式语法
                    DESC
 
   s.homepage     = "https://github.com/colaicode/CLKit"
@@ -41,6 +41,10 @@ Pod::Spec.new do |s|
   s.subspec 'KKBaseActionSheet' do |ss|
     ss.source_files = 'CLKitDemo/KKKit/KKBaseActionSheet/*.{h,m}'
     ss.public_header_files = 'CLKitDemo/KKKit/KKBaseActionSheet/KKBaseActionSheet.h'
+  end
+  s.subspec 'KKBaseTextField' do |ss|
+    ss.source_files = 'CLKitDemo/KKKit/KKBaseTextField/*.{h,m}'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseTextField/KKBaseTextField.h'
   end
 
 

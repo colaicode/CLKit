@@ -24,11 +24,11 @@
 
 -(KKBaseLabel*(^)(UIColor* color))labelBgColor;
 
--(KKBaseLabel*(^)(UIFont* font))labelTextFont;
+-(KKBaseLabel*(^)(id font))labelTextFont;
 
 +(instancetype)label;
 
-+(instancetype)labelWithFont:(UIFont*)font;
++(instancetype)labelWithFont:(id)font;
 
 /**
  *  初始化lable font:18

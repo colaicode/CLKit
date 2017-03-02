@@ -60,9 +60,9 @@
     };
 }
 
--(KKBaseLabel *(^)(UIFont *))labelTextFont {
-    return ^KKBaseLabel*(UIFont *font){
-        self.font = font;
+-(KKBaseLabel *(^)(id))labelTextFont {
+    return ^KKBaseLabel*(id font){
+        self.font = [font isKindOfClass:[UIFont class]]?font:[UIFont systemFontOfSize:[font floatValue]];
         return self;
     };
 }
@@ -71,26 +71,26 @@
     return [[[self class] alloc] init];
 }
 
-+(instancetype)labelWithFont:(UIFont *)font {
++(instancetype)labelWithFont:(id)font {
     KKBaseLabel* label = [[self class] label];
     label.font = font;
     return label;
 }
 
 +(instancetype)headlineLabel {
-    return [[self class] labelWithFont:[UIFont systemFontOfSize:18]];
+    return [[self class] labelWithFont:@18];
 }
 
 +(instancetype)subheadlineLable {
-    return [[self class] labelWithFont:[UIFont systemFontOfSize:14]];
+    return [[self class] labelWithFont:@14];
 }
 
 +(instancetype)bodyLabel {
-    return [[self class] labelWithFont:[UIFont systemFontOfSize:12]];
+    return [[self class] labelWithFont:@12];
 }
 
 +(instancetype)footnoteLabel {
-    return [[self class] labelWithFont:[UIFont systemFontOfSize:10]];
+    return [[self class] labelWithFont:@10];
 }
 
 

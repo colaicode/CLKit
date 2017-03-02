@@ -9,7 +9,12 @@
 #import "ViewController.h"
 #import "ButtonDemoViewController.h"
 #import "KKKit.h"
-@interface ViewController ()
+
+#define CELL_INDETIFY               @"CellIndentify"
+
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,strong) NSArray*                 demoArray;
 
 @end
 
@@ -17,29 +22,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    KKBaseButton* button = [KKBaseButton buttonWithTitle:@"show buttonDemo" actionBlock:^(id sender){
-        ButtonDemoViewController* vc = [ButtonDemoViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }].normalTitleColor([UIColor blackColor]).buttonFrame(CGRectMake(100, 100, 200, 40));
-    [button setFrame:CGRectMake(100, 100, 200, 40)];
-    [self.view addSubview:button];
-    
-    KKBaseButton* button1 = [KKBaseButton buttonWithTitle:@"show LabelDemo" actionBlock:^(id sender){
-        [self.navigationController pushViewController:[NSClassFromString(@"LabelDemoViewController") new] animated:YES];
-        
-    }].normalTitleColor([UIColor blackColor]).buttonFrame(CGRectMake(100, 200, 200, 40));
-    [self.view addSubview:button1];
-    
-    [KKBaseAlertView showAlert:@"alert" complete:^(NSInteger buttonIndex){
-        NSLog(@"%ld",(long)buttonIndex);
-    }];
-    
-    [KKBaseActionSheet showActionSheet:@"请选择性别" buttons:@[@"男",@"女"] complete:^(NSInteger buttonIndex){
-        NSLog(@"%ld",(long)buttonIndex);
-    }];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_INDETIFY];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.demoArray.count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CELL_INDETIFY];
+    cell.textLabel.text = self.demoArray[indexPath.row];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* demoName = self.demoArray[indexPath.row];
+    NSString* classString = [demoName stringByAppendingString:@"ViewController"];
+    UIViewController* vc = [[NSClassFromString(classString) alloc] init];
+    vc.title = demoName;
+    vc.view.backgroundColor = [UIColor brownColor];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
+-(NSArray *)demoArray {
+    if (!_demoArray) {
+        _demoArray = @[@"LabelDemo",@"ButtonDemo",@"TextFieldDemo",@"AlertDemo",@"ActionSheetDemo"];
+    }
+    return _demoArray;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

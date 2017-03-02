@@ -22,7 +22,7 @@
 
 +(instancetype)buttonWithImage:(UIImage*)image;
 
-+(instancetype)buttonWithBackgroundImage:(UIImage*)image;
++(instancetype)buttonWithBgImage:(UIImage*)image;
 
 -(KKBaseButton *(^)(CGRect ))buttonFrame;
 
@@ -34,15 +34,17 @@
 
 -(KKBaseButton *(^)(UIColor *))selectTitleColor;
 
--(KKBaseButton *(^)(UIFont *))titleFont;
+-(KKBaseButton *(^)(UIColor *))bgColor;
+
+-(KKBaseButton *(^)(id))titleFont;
 
 -(KKBaseButton *(^)(id))normalImage;
 
 -(KKBaseButton *(^)(id))selectImage;
 
--(KKBaseButton *(^)(id))normalBackgourndImage;
+-(KKBaseButton *(^)(id))normalBgImage;
 
--(KKBaseButton *(^)(id))selectBackgourndImage;
+-(KKBaseButton *(^)(id))selectBgImage;
 
 -(void)upInsideAction:(void(^)(KKBaseButton* sender))action;
 
@@ -87,7 +89,7 @@
  *
  *  @return button
  */
-+(instancetype)buttonWithBackgroudImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block;
++(instancetype)buttonWithBgImage:(id)image actionBlock:(void (^)(KKBaseButton* sender))block;
 
 /**
  *  初始化按钮
@@ -98,7 +100,7 @@
  *
  *  @return button
  */
-+(instancetype)buttonWithBackgroudImage:(id)image title:(NSString*)title actionBlock:(void (^)(KKBaseButton* sender))block;
++(instancetype)buttonWithBgImage:(id)image title:(NSString*)title actionBlock:(void (^)(KKBaseButton* sender))block;
 
 @end
 

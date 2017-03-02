@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		228943E01E6670F400082B9B /* TextFieldDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */; };
+		228943E31E6672A200082B9B /* AlertDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943E21E6672A200082B9B /* AlertDemoViewController.m */; };
+		228943E61E6672B300082B9B /* ActionSheetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943E51E6672B300082B9B /* ActionSheetDemoViewController.m */; };
 		229D4B431E6005100040BC97 /* ButtonDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4B421E6005100040BC97 /* ButtonDemoViewController.m */; };
 		229D4B461E601DB70040BC97 /* LabelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4B451E601DB70040BC97 /* LabelDemoViewController.m */; };
+		229D4B4A1E602CA50040BC97 /* KKBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4B491E602CA50040BC97 /* KKBaseTextField.m */; };
 		22A129BC1E5FE09D00851B98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129BB1E5FE09D00851B98 /* main.m */; };
 		22A129BF1E5FE09D00851B98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129BE1E5FE09D00851B98 /* AppDelegate.m */; };
 		22A129C21E5FE09D00851B98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129C11E5FE09D00851B98 /* ViewController.m */; };
@@ -18,13 +22,23 @@
 		22A129E01E5FE0C200851B98 /* KKBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129D71E5FE0C200851B98 /* KKBaseAlertView.m */; };
 		22A129E11E5FE0C200851B98 /* KKBaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129DA1E5FE0C200851B98 /* KKBaseButton.m */; };
 		22A129E21E5FE0C200851B98 /* KKBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A129DD1E5FE0C200851B98 /* KKBaseLabel.m */; };
+		4BE99FFBE2EC377C2C1DE3CC /* libPods-CLKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74813F44C366D43DB832D5BD /* libPods-CLKitDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		228943DD1E66705E00082B9B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		228943DE1E6670F400082B9B /* TextFieldDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDemoViewController.h; sourceTree = "<group>"; };
+		228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldDemoViewController.m; sourceTree = "<group>"; };
+		228943E11E6672A200082B9B /* AlertDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertDemoViewController.h; sourceTree = "<group>"; };
+		228943E21E6672A200082B9B /* AlertDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertDemoViewController.m; sourceTree = "<group>"; };
+		228943E41E6672B300082B9B /* ActionSheetDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDemoViewController.h; sourceTree = "<group>"; };
+		228943E51E6672B300082B9B /* ActionSheetDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDemoViewController.m; sourceTree = "<group>"; };
 		229D4B411E6005100040BC97 /* ButtonDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonDemoViewController.h; sourceTree = "<group>"; };
 		229D4B421E6005100040BC97 /* ButtonDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonDemoViewController.m; sourceTree = "<group>"; };
 		229D4B441E601DB70040BC97 /* LabelDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelDemoViewController.h; sourceTree = "<group>"; };
 		229D4B451E601DB70040BC97 /* LabelDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDemoViewController.m; sourceTree = "<group>"; };
+		229D4B481E602CA50040BC97 /* KKBaseTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseTextField.h; sourceTree = "<group>"; };
+		229D4B491E602CA50040BC97 /* KKBaseTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseTextField.m; sourceTree = "<group>"; };
 		22A129B71E5FE09D00851B98 /* CLKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A129BB1E5FE09D00851B98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22A129BD1E5FE09D00851B98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,6 +57,9 @@
 		22A129DC1E5FE0C200851B98 /* KKBaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseLabel.h; sourceTree = "<group>"; };
 		22A129DD1E5FE0C200851B98 /* KKBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseLabel.m; sourceTree = "<group>"; };
 		22A129DE1E5FE0C200851B98 /* KKKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKit.h; sourceTree = "<group>"; };
+		2AF0DFD1EAA962CDDBFC1DFD /* Pods-CLKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLKitDemo/Pods-CLKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		74813F44C366D43DB832D5BD /* libPods-CLKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C00AA845BF7A51B4AD0B66 /* Pods-CLKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLKitDemo/Pods-CLKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,17 +67,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE99FFBE2EC377C2C1DE3CC /* libPods-CLKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229D4B471E602C880040BC97 /* KKBaseTextField */ = {
+			isa = PBXGroup;
+			children = (
+				229D4B481E602CA50040BC97 /* KKBaseTextField.h */,
+				229D4B491E602CA50040BC97 /* KKBaseTextField.m */,
+			);
+			path = KKBaseTextField;
+			sourceTree = "<group>";
+		};
 		22A129AE1E5FE09D00851B98 = {
 			isa = PBXGroup;
 			children = (
 				22A129B91E5FE09D00851B98 /* CLKitDemo */,
 				22A129B81E5FE09D00851B98 /* Products */,
+				F7CE98BD2B94ADC62D8476CA /* Pods */,
+				DECFDB85AD7524D238795711 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +113,12 @@
 				229D4B451E601DB70040BC97 /* LabelDemoViewController.m */,
 				229D4B411E6005100040BC97 /* ButtonDemoViewController.h */,
 				229D4B421E6005100040BC97 /* ButtonDemoViewController.m */,
+				228943DE1E6670F400082B9B /* TextFieldDemoViewController.h */,
+				228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */,
+				228943E11E6672A200082B9B /* AlertDemoViewController.h */,
+				228943E21E6672A200082B9B /* AlertDemoViewController.m */,
+				228943E41E6672B300082B9B /* ActionSheetDemoViewController.h */,
+				228943E51E6672B300082B9B /* ActionSheetDemoViewController.m */,
 				22A129C61E5FE09D00851B98 /* Assets.xcassets */,
 				22A129C81E5FE09D00851B98 /* LaunchScreen.storyboard */,
 				22A129CB1E5FE09D00851B98 /* Info.plist */,
@@ -96,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				22A129BB1E5FE09D00851B98 /* main.m */,
+				228943DD1E66705E00082B9B /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -103,6 +139,7 @@
 		22A129D11E5FE0C200851B98 /* KKKit */ = {
 			isa = PBXGroup;
 			children = (
+				229D4B471E602C880040BC97 /* KKBaseTextField */,
 				22A129D21E5FE0C200851B98 /* KKBaseActionSheet */,
 				22A129D51E5FE0C200851B98 /* KKBaseAlertView */,
 				22A129D81E5FE0C200851B98 /* KKBaseButton */,
@@ -148,6 +185,23 @@
 			path = KKBaseLabel;
 			sourceTree = "<group>";
 		};
+		DECFDB85AD7524D238795711 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74813F44C366D43DB832D5BD /* libPods-CLKitDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7CE98BD2B94ADC62D8476CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9C00AA845BF7A51B4AD0B66 /* Pods-CLKitDemo.debug.xcconfig */,
+				2AF0DFD1EAA962CDDBFC1DFD /* Pods-CLKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22A129CE1E5FE09D00851B98 /* Build configuration list for PBXNativeTarget "CLKitDemo" */;
 			buildPhases = (
+				A9A7178AA92B69FE6A46246B /* [CP] Check Pods Manifest.lock */,
 				22A129B31E5FE09D00851B98 /* Sources */,
 				22A129B41E5FE09D00851B98 /* Frameworks */,
 				22A129B51E5FE09D00851B98 /* Resources */,
+				2773591CD644B02B6A67A815 /* [CP] Embed Pods Frameworks */,
+				8B5EB477D79988DBFF1A80A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +270,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2773591CD644B02B6A67A815 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CLKitDemo/Pods-CLKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B5EB477D79988DBFF1A80A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CLKitDemo/Pods-CLKitDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9A7178AA92B69FE6A46246B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		22A129B31E5FE09D00851B98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -224,6 +329,10 @@
 				22A129DF1E5FE0C200851B98 /* KKBaseActionSheet.m in Sources */,
 				229D4B461E601DB70040BC97 /* LabelDemoViewController.m in Sources */,
 				22A129E21E5FE0C200851B98 /* KKBaseLabel.m in Sources */,
+				229D4B4A1E602CA50040BC97 /* KKBaseTextField.m in Sources */,
+				228943E61E6672B300082B9B /* ActionSheetDemoViewController.m in Sources */,
+				228943E01E6670F400082B9B /* TextFieldDemoViewController.m in Sources */,
+				228943E31E6672A200082B9B /* AlertDemoViewController.m in Sources */,
 				229D4B431E6005100040BC97 /* ButtonDemoViewController.m in Sources */,
 				22A129E11E5FE0C200851B98 /* KKBaseButton.m in Sources */,
 				22A129BC1E5FE09D00851B98 /* main.m in Sources */,
@@ -336,25 +445,31 @@
 		};
 		22A129CF1E5FE09D00851B98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9C00AA845BF7A51B4AD0B66 /* Pods-CLKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/CLKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = CLKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaka.CLKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		22A129D01E5FE09D00851B98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AF0DFD1EAA962CDDBFC1DFD /* Pods-CLKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "${SRCROOT}/CLKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = CLKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaka.CLKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

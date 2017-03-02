@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.title = @"ButtonDemo";
     self.view.backgroundColor = [UIColor lightGrayColor];
-    KKBaseButton* sender = [KKBaseButton buttonWithDefaultFont:@"Button"].normalTitleColor([UIColor blueColor]).normalImage(@"home_up").buttonFrame(CGRectMake(100, 100, 100, 40)).selectImage(@"home_down").normalTitleColor([UIColor blackColor]);
+    KKBaseButton* sender = [KKBaseButton buttonWithDefaultFont:@"Button"].normalTitleColor([UIColor blueColor]).normalImage(@"home_up").buttonFrame(CGRectMake(100, 100, 100, 40)).selectImage(@"home_down").normalTitleColor([UIColor blackColor]).titleFont(@17);
     [sender upInsideAction:^(KKBaseButton* sender){
         sender.selected = !sender.selected;
     }];
@@ -26,10 +26,17 @@
     
     KKBaseButton* button = [KKBaseButton buttonWithImage:@"home_up" actionBlock:^(KKBaseButton* sender){
         sender.selected = !sender.selected;
-    }].buttonFrame(CGRectMake(100, 200, 100, 40)).selectImage(@"home_down").normalTitleColor([UIColor blackColor]);
+    }].selectImage(@"home_down").normalTitleColor([UIColor blackColor]).bgColor([UIColor greenColor]);
     [self.view addSubview:button];
     
+    [button mas_makeConstraints:^(MASConstraintMaker* maker){
+        maker.left.equalTo(self.view).offset(40);
+        maker.top.equalTo(self.view).offset(200);
+    }];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

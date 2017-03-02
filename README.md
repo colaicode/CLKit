@@ -34,6 +34,42 @@ KKBaseLabel* label = [KKBaseLabel subheadlineLable]
 [self.view addSubview:label];
 
 ```
+## KKBaseTextField
+提供链式语法设置textfield的属性。
+demo1: 设置基本属性
+
+```
+KKBaseTextField* tf = [KKBaseTextField textFieldWithPlaceholder:@"请输入用户名"].tfTitleLeftView(@"用户名",CGSizeMake(60, 40),10);
+[self.view addSubview:tf];
+
+```
+demo2: 创建toolbar以及设置最大输入长度和每4个字符插入空格
+
+```
+KKBaseTextField* tf4 =
+[KKBaseTextField textFieldWithPlaceholder:@"请输入手机号"]
+.tfImageLeftView(@"phone",CGSizeMake(40, 40))
+.tfCreateToolbar()
+.tfTextEdgeInsets(UIEdgeInsetsMake(0, 5, 0, 5))
+.tfTextMaxLength(11)
+.tfTextAutoSegment();
+[self.view addSubview:tf4];
+```
+demo3:设置inputView为UIPickerView
+
+```
+KKBaseTextField* tf5 =
+[KKBaseTextField textFieldWithPlaceholder:@"请选择地址"]
+.tfImageLeftView(@"address",CGSizeMake(40, 40))
+.tfCreatePickerView()
+.tfImageRightView(@"arrow_right",CGSizeMake(40, 40));
+tf5.baseTextFieldDelegate = self;
+tf5.baseTextFieldDataSource = self;
+[self.view addSubview:tf5];
+
+```
+
+
 ## KKBaseAlertView
 demo:
 

@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface KKBaseActionSheet : NSObject
+
 /**
- *  actionSheet
- *
- *  @param title   title
- *  @param buttons 按钮
- *  @param block   回调
+ actionSheet
+
+ @param title 提示文字
+ @param buttons buttons
+ @param block 回调
+ @return actionSheet
  */
-+(void)showActionSheet:(NSString*)title buttons:(NSArray*)buttons complete:(void(^)(NSInteger buttonIndex))block;
++(UIActionSheet* )showActionSheet:(NSString*)title buttons:(NSArray*)buttons complete:(void(^)(NSInteger buttonIndex))block;
 
 @end

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
   封装了常用的控件，如button、label、textfield、alertView、actionSheet等,提供链式语法
@@ -21,36 +21,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/colaicode/CLKit.git", :tag => "#{s.version}" }
 
-  s.source_files  = "CLKitDemo/KKKit/KKKit.h"
-  s.public_header_files = "CLKitDemo/KKKit/KKKit.h" 
+  s.source_files  = "CLKitDemo/KKKit/*.{h,m}"
+  s.public_header_files = "CLKitDemo/KKKit/*.{h}" 
   s.requires_arc = true
-  
-  
-  s.subspec 'KKBaseButton' do |ss|
-    ss.source_files = 'CLKitDemo/KKKit/KKBaseButton/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseButton/KKBaseButton.h'
-  end
+  s.dependency "Masonry"
 
-  s.subspec 'KKBaseLabel' do |ss|
-    ss.source_files = 'CLKitDemo/KKKit/KKBaseLabel/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseLabel/KKBaseLabel.h'
-  end
-  s.subspec 'KKBaseAlertView' do |ss|
-    ss.source_files = 'CLKitDemo/KKKit/KKBaseAlertView/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseAlertView/KKBaseAlertView.h'
-  end
-  s.subspec 'KKBaseActionSheet' do |ss|
-    ss.source_files = 'CLKitDemo/KKKit/KKBaseActionSheet/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseActionSheet/KKBaseActionSheet.h'
-  end
-  s.subspec 'KKBaseTextField' do |ss|
-    ss.source_files = 'CLKitDemo/KKKit/KKBaseTextField/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseTextField/KKBaseTextField.h'
-  end
-  s.subspec 'KKBaseViewController' do |ss|
-  ss.source_files = 'CLKitDemo/KKKit/KKBaseViewController/*.{h,m}'
-  ss.public_header_files = 'CLKitDemo/KKKit/KKBaseViewController/*.h'
-  ss.dependency "Masonry"
-  end
+  
+  
 
 end

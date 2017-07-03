@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LabelDemoViewController : UIViewController
+@interface LabelDemoViewController : KKBaseViewController
 
 @end

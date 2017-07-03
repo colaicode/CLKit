@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActionSheetDemoViewController : UIViewController
+@interface ActionSheetDemoViewController : KKBaseViewController
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButtonDemoViewController : UIViewController
+@interface ButtonDemoViewController : KKBaseViewController
 
 @end

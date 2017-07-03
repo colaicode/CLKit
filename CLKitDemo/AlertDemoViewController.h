@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlertDemoViewController : UIViewController
+@interface AlertDemoViewController : KKBaseViewController
 
 @end

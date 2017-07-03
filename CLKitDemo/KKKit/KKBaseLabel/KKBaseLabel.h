@@ -28,7 +28,7 @@
 
 +(instancetype)label;
 
-+(instancetype)labelWithFont:(id)font;
++(instancetype)labelWithFont:(UIFont*)font;
 
 /**
  *  初始化lable font:18

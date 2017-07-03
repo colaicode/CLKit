@@ -15,16 +15,24 @@
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSArray*                 demoArray;
-
+@property (nonatomic, strong) UITableView* tableView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationBar.leftItem.hidden = YES;
+    self.navigationBar.backgroundColor = [UIColor blackColor];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_INDETIFY];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker* maker){
+        maker.left.width.bottom.equalTo(self.view);
+        maker.top.equalTo(self.navigationBar.mas_bottom);
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -71,26 +71,26 @@
     return [[[self class] alloc] init];
 }
 
-+(instancetype)labelWithFont:(id)font {
++(instancetype)labelWithFont:(UIFont*)font {
     KKBaseLabel* label = [[self class] label];
     label.font = font;
     return label;
 }
 
 +(instancetype)headlineLabel {
-    return [[self class] labelWithFont:@18];
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:18]];
 }
 
 +(instancetype)subheadlineLable {
-    return [[self class] labelWithFont:@14];
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:14]];
 }
 
 +(instancetype)bodyLabel {
-    return [[self class] labelWithFont:@12];
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:12]];
 }
 
 +(instancetype)footnoteLabel {
-    return [[self class] labelWithFont:@10];
+    return [[self class] labelWithFont:[UIFont systemFontOfSize:10]];
 }
 
 

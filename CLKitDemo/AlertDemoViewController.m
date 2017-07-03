@@ -7,7 +7,7 @@
 //
 
 #import "AlertDemoViewController.h"
-
+#import "KKBaseAlertView.h"
 @interface AlertDemoViewController ()
 
 @end

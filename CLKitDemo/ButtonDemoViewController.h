@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KKBaseViewController.h"
 
 @interface ButtonDemoViewController : KKBaseViewController
 

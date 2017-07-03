@@ -7,6 +7,7 @@
 //
 
 #import "KKBaseViewController.h"
+#import "Masonry.h"
 
 @interface KKBaseViewController ()
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "KKBaseNavigationBar.h"
+#import "Masonry.h"
 
 #define NAV_ITEM_WIDTH     40
 

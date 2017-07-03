@@ -7,6 +7,7 @@
 //
 
 #import "TextFieldDemoViewController.h"
+#import "Masonry.h"
 
 @interface TextFieldDemoViewController ()<KKBaseTextFieldDelegate,KKBaseTextFieldDataSource>
 @property (nonatomic,strong) NSArray*                 addressArray;

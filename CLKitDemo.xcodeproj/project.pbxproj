@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2205A3161F06235300D90E89 /* KKBaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3111F06235300D90E89 /* KKBaseNavigationBar.m */; };
-		2205A3171F06235300D90E89 /* KKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3131F06235300D90E89 /* KKBaseNavigationController.m */; };
-		2205A3181F06235300D90E89 /* KKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3151F06235300D90E89 /* KKBaseViewController.m */; };
-		2205A31D1F09D8DC00D90E89 /* KKBaseViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2205A31C1F09D8DC00D90E89 /* KKBaseViewController.bundle */; };
+		2205A3291F09E47300D90E89 /* KKBaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */; };
+		2205A32A1F09E47300D90E89 /* KKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */; };
+		2205A32B1F09E47300D90E89 /* KKBaseViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */; };
+		2205A32C1F09E47300D90E89 /* KKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3281F09E47300D90E89 /* KKBaseViewController.m */; };
 		228943E01E6670F400082B9B /* TextFieldDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */; };
 		228943E31E6672A200082B9B /* AlertDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943E21E6672A200082B9B /* AlertDemoViewController.m */; };
 		228943E61E6672B300082B9B /* ActionSheetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943E51E6672B300082B9B /* ActionSheetDemoViewController.m */; };
@@ -30,13 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2205A3101F06235300D90E89 /* KKBaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseNavigationBar.h; sourceTree = "<group>"; };
-		2205A3111F06235300D90E89 /* KKBaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationBar.m; sourceTree = "<group>"; };
-		2205A3121F06235300D90E89 /* KKBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseNavigationController.h; sourceTree = "<group>"; };
-		2205A3131F06235300D90E89 /* KKBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationController.m; sourceTree = "<group>"; };
-		2205A3141F06235300D90E89 /* KKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseViewController.h; sourceTree = "<group>"; };
-		2205A3151F06235300D90E89 /* KKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseViewController.m; sourceTree = "<group>"; };
-		2205A31C1F09D8DC00D90E89 /* KKBaseViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KKBaseViewController.bundle; sourceTree = "<group>"; };
+		2205A3221F09E47300D90E89 /* KKBaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseNavigationBar.h; sourceTree = "<group>"; };
+		2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationBar.m; sourceTree = "<group>"; };
+		2205A3241F09E47300D90E89 /* KKBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseNavigationController.h; sourceTree = "<group>"; };
+		2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationController.m; sourceTree = "<group>"; };
+		2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KKBaseViewController.bundle; sourceTree = "<group>"; };
+		2205A3271F09E47300D90E89 /* KKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseViewController.h; sourceTree = "<group>"; };
+		2205A3281F09E47300D90E89 /* KKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseViewController.m; sourceTree = "<group>"; };
 		228943DD1E66705E00082B9B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		228943DE1E6670F400082B9B /* TextFieldDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDemoViewController.h; sourceTree = "<group>"; };
 		228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldDemoViewController.m; sourceTree = "<group>"; };
@@ -85,18 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2205A30F1F06233F00D90E89 /* KKViewController */ = {
+		2205A3211F09E47300D90E89 /* KKBaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2205A3101F06235300D90E89 /* KKBaseNavigationBar.h */,
-				2205A3111F06235300D90E89 /* KKBaseNavigationBar.m */,
-				2205A3121F06235300D90E89 /* KKBaseNavigationController.h */,
-				2205A3131F06235300D90E89 /* KKBaseNavigationController.m */,
-				2205A3141F06235300D90E89 /* KKBaseViewController.h */,
-				2205A3151F06235300D90E89 /* KKBaseViewController.m */,
-				2205A31C1F09D8DC00D90E89 /* KKBaseViewController.bundle */,
+				2205A3221F09E47300D90E89 /* KKBaseNavigationBar.h */,
+				2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */,
+				2205A3241F09E47300D90E89 /* KKBaseNavigationController.h */,
+				2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */,
+				2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */,
+				2205A3271F09E47300D90E89 /* KKBaseViewController.h */,
+				2205A3281F09E47300D90E89 /* KKBaseViewController.m */,
 			);
-			path = KKViewController;
+			path = KKBaseViewController;
 			sourceTree = "<group>";
 		};
 		229D4B471E602C880040BC97 /* KKBaseTextField */ = {
@@ -164,7 +164,7 @@
 		22A129D11E5FE0C200851B98 /* KKKit */ = {
 			isa = PBXGroup;
 			children = (
-				2205A30F1F06233F00D90E89 /* KKViewController */,
+				2205A3211F09E47300D90E89 /* KKBaseViewController */,
 				229D4B471E602C880040BC97 /* KKBaseTextField */,
 				22A129D21E5FE0C200851B98 /* KKBaseActionSheet */,
 				22A129D51E5FE0C200851B98 /* KKBaseAlertView */,
@@ -290,7 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A129CA1E5FE09D00851B98 /* LaunchScreen.storyboard in Resources */,
-				2205A31D1F09D8DC00D90E89 /* KKBaseViewController.bundle in Resources */,
+				2205A32B1F09E47300D90E89 /* KKBaseViewController.bundle in Resources */,
 				22A129C71E5FE09D00851B98 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,13 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A129C21E5FE09D00851B98 /* ViewController.m in Sources */,
-				2205A3181F06235300D90E89 /* KKBaseViewController.m in Sources */,
+				2205A32C1F09E47300D90E89 /* KKBaseViewController.m in Sources */,
 				22A129E01E5FE0C200851B98 /* KKBaseAlertView.m in Sources */,
 				22A129BF1E5FE09D00851B98 /* AppDelegate.m in Sources */,
 				22A129DF1E5FE0C200851B98 /* KKBaseActionSheet.m in Sources */,
-				2205A3161F06235300D90E89 /* KKBaseNavigationBar.m in Sources */,
+				2205A3291F09E47300D90E89 /* KKBaseNavigationBar.m in Sources */,
 				229D4B461E601DB70040BC97 /* LabelDemoViewController.m in Sources */,
-				2205A3171F06235300D90E89 /* KKBaseNavigationController.m in Sources */,
+				2205A32A1F09E47300D90E89 /* KKBaseNavigationController.m in Sources */,
 				22A129E21E5FE0C200851B98 /* KKBaseLabel.m in Sources */,
 				229D4B4A1E602CA50040BC97 /* KKBaseTextField.m in Sources */,
 				228943E61E6672B300082B9B /* ActionSheetDemoViewController.m in Sources */,

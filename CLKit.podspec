@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
   封装了常用的控件，如button、label、textfield、alertView、actionSheet等,提供链式语法
@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
   end
    s.subspec 'KKBaseViewController' do |ss|
     ss.source_files = 'CLKitDemo/KKKit/KKBaseViewController/*.{h,m}'
-    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseViewController/KKBaseViewController.h'
+    ss.public_header_files = 'CLKitDemo/KKKit/KKBaseViewController/*.h'
   end
 
 end

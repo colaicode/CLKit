@@ -228,7 +228,6 @@ static const NSString* KKBaseButton_Key = @"KKBaseButtonKey";
 
 -(void)didMoveToSuperview {
     [super didMoveToSuperview];
-    NSLog(@"%@",self);
 }
 
 -(void)dealloc {

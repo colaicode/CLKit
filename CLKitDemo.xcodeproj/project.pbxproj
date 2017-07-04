@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2205A3291F09E47300D90E89 /* KKBaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */; };
 		2205A32A1F09E47300D90E89 /* KKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */; };
-		2205A32B1F09E47300D90E89 /* KKBaseViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */; };
+		2205A32B1F09E47300D90E89 /* KKKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2205A3261F09E47300D90E89 /* KKKit.bundle */; };
 		2205A32C1F09E47300D90E89 /* KKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3281F09E47300D90E89 /* KKBaseViewController.m */; };
 		2205A4171F0B747700D90E89 /* KKBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A4161F0B747700D90E89 /* KKBaseTableView.m */; };
 		2205A41A1F0B74F300D90E89 /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A4191F0B74F300D90E89 /* KKBaseTableViewController.m */; };
@@ -36,7 +36,7 @@
 		2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationBar.m; sourceTree = "<group>"; };
 		2205A3241F09E47300D90E89 /* KKBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseNavigationController.h; sourceTree = "<group>"; };
 		2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseNavigationController.m; sourceTree = "<group>"; };
-		2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KKBaseViewController.bundle; sourceTree = "<group>"; };
+		2205A3261F09E47300D90E89 /* KKKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = KKKit.bundle; path = KKBaseViewController/KKKit.bundle; sourceTree = "<group>"; };
 		2205A3271F09E47300D90E89 /* KKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseViewController.h; sourceTree = "<group>"; };
 		2205A3281F09E47300D90E89 /* KKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseViewController.m; sourceTree = "<group>"; };
 		2205A4151F0B747700D90E89 /* KKBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseTableView.h; sourceTree = "<group>"; };
@@ -98,7 +98,6 @@
 				2205A3231F09E47300D90E89 /* KKBaseNavigationBar.m */,
 				2205A3241F09E47300D90E89 /* KKBaseNavigationController.h */,
 				2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */,
-				2205A3261F09E47300D90E89 /* KKBaseViewController.bundle */,
 				2205A3271F09E47300D90E89 /* KKBaseViewController.h */,
 				2205A3281F09E47300D90E89 /* KKBaseViewController.m */,
 				2205A4181F0B74F300D90E89 /* KKBaseTableViewController.h */,
@@ -181,6 +180,8 @@
 		22A129D11E5FE0C200851B98 /* KKKit */ = {
 			isa = PBXGroup;
 			children = (
+				22A129DE1E5FE0C200851B98 /* KKKit.h */,
+				2205A3261F09E47300D90E89 /* KKKit.bundle */,
 				2205A4141F0B746000D90E89 /* KKBaseTableView */,
 				2205A3211F09E47300D90E89 /* KKBaseViewController */,
 				229D4B471E602C880040BC97 /* KKBaseTextField */,
@@ -188,7 +189,6 @@
 				22A129D51E5FE0C200851B98 /* KKBaseAlertView */,
 				22A129D81E5FE0C200851B98 /* KKBaseButton */,
 				22A129DB1E5FE0C200851B98 /* KKBaseLabel */,
-				22A129DE1E5FE0C200851B98 /* KKKit.h */,
 			);
 			path = KKKit;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A129CA1E5FE09D00851B98 /* LaunchScreen.storyboard in Resources */,
-				2205A32B1F09E47300D90E89 /* KKBaseViewController.bundle in Resources */,
+				2205A32B1F09E47300D90E89 /* KKKit.bundle in Resources */,
 				22A129C71E5FE09D00851B98 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

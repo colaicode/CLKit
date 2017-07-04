@@ -23,7 +23,7 @@
     if (self) {
         
         __weak __typeof(self) weakSelf = self;
-        NSString* path = [[NSBundle mainBundle] pathForResource:@"KKBaseViewController" ofType:@"bundle"];
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"KKKit" ofType:@"bundle"];
         NSString* imagePath = [[NSBundle bundleWithPath:path] pathForResource:@"back" ofType:@"png" inDirectory:@"image"];
         NSLog(@"%@",imagePath);
         _leftItem = [KKBaseButton buttonWithImage:imagePath actionBlock:^(KKBaseButton*sender){

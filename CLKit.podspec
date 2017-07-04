@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.1.5"
+  s.version      = "1.1.6"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
   封装了常用的控件，如button、label、textfield、alertView、actionSheet等,提供链式语法
@@ -21,8 +21,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/colaicode/CLKit.git", :tag => "#{s.version}" }
 
-  s.source_files  = "CLKitDemo/KKKit/**/*.{h,m}"
-  s.public_header_files = "CLKitDemo/KKKit/**/*.{h}" 
   s.resource     = 'CLKitDemo/KKKit/KKKit.bundle'
   s.requires_arc = true
   s.dependency "Masonry"

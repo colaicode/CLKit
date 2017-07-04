@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CLKit"
-  s.version      = "1.1.2"
+  s.version      = "1.1.3"
   s.summary      = "一些常用控件封装"
   s.description  = <<-DESC
   封装了常用的控件，如button、label、textfield、alertView、actionSheet等,提供链式语法

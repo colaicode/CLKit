@@ -16,6 +16,8 @@
 #import "KKBaseActionSheet.h"
 #import "KKBaseTextField.h"
 #import "KKBaseViewController.h"
+#import "KKBaseTableView.h"
+#import "KKBaseTableViewController.h"
 #endif
 
 

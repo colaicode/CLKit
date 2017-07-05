@@ -6,13 +6,13 @@
 //  Copyright © 2017年 KaKa. All rights reserved.
 //
 
-#import "KKBaseTableViewController.h"
+#import "KKTableViewController.h"
 #import "Masonry.h"
-@interface KKBaseTableViewController ()
+@interface KKTableViewController ()
 
 @end
 
-@implementation KKBaseTableViewController
+@implementation KKTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

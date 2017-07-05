@@ -17,7 +17,7 @@
 #import "KKBaseTextField.h"
 #import "KKBaseViewController.h"
 #import "KKBaseTableView.h"
-#import "KKBaseTableViewController.h"
+#import "KKTableViewController.h"
 #endif
 
 

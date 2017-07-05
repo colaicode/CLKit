@@ -11,7 +11,7 @@
 		2205A32A1F09E47300D90E89 /* KKBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */; };
 		2205A32C1F09E47300D90E89 /* KKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A3281F09E47300D90E89 /* KKBaseViewController.m */; };
 		2205A4171F0B747700D90E89 /* KKBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A4161F0B747700D90E89 /* KKBaseTableView.m */; };
-		2205A41A1F0B74F300D90E89 /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A4191F0B74F300D90E89 /* KKBaseTableViewController.m */; };
+		2205A41A1F0B74F300D90E89 /* KKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A4191F0B74F300D90E89 /* KKTableViewController.m */; };
 		2205A41C1F0BDE2D00D90E89 /* KKKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2205A41B1F0BDE2D00D90E89 /* KKKit.bundle */; };
 		228943E01E6670F400082B9B /* TextFieldDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943DF1E6670F400082B9B /* TextFieldDemoViewController.m */; };
 		228943E31E6672A200082B9B /* AlertDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228943E21E6672A200082B9B /* AlertDemoViewController.m */; };
@@ -40,8 +40,8 @@
 		2205A3281F09E47300D90E89 /* KKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseViewController.m; sourceTree = "<group>"; };
 		2205A4151F0B747700D90E89 /* KKBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseTableView.h; sourceTree = "<group>"; };
 		2205A4161F0B747700D90E89 /* KKBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseTableView.m; sourceTree = "<group>"; };
-		2205A4181F0B74F300D90E89 /* KKBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
-		2205A4191F0B74F300D90E89 /* KKBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBaseTableViewController.m; sourceTree = "<group>"; };
+		2205A4181F0B74F300D90E89 /* KKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKTableViewController.h; sourceTree = "<group>"; };
+		2205A4191F0B74F300D90E89 /* KKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKTableViewController.m; sourceTree = "<group>"; };
 		2205A41B1F0BDE2D00D90E89 /* KKKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KKKit.bundle; sourceTree = "<group>"; };
 		228943DD1E66705E00082B9B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		228943DE1E6670F400082B9B /* TextFieldDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDemoViewController.h; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 				2205A3251F09E47300D90E89 /* KKBaseNavigationController.m */,
 				2205A3271F09E47300D90E89 /* KKBaseViewController.h */,
 				2205A3281F09E47300D90E89 /* KKBaseViewController.m */,
-				2205A4181F0B74F300D90E89 /* KKBaseTableViewController.h */,
-				2205A4191F0B74F300D90E89 /* KKBaseTableViewController.m */,
+				2205A4181F0B74F300D90E89 /* KKTableViewController.h */,
+				2205A4191F0B74F300D90E89 /* KKTableViewController.m */,
 			);
 			path = KKBaseViewController;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				2205A32A1F09E47300D90E89 /* KKBaseNavigationController.m in Sources */,
 				22A129E21E5FE0C200851B98 /* KKBaseLabel.m in Sources */,
 				2205A4171F0B747700D90E89 /* KKBaseTableView.m in Sources */,
-				2205A41A1F0B74F300D90E89 /* KKBaseTableViewController.m in Sources */,
+				2205A41A1F0B74F300D90E89 /* KKTableViewController.m in Sources */,
 				229D4B4A1E602CA50040BC97 /* KKBaseTextField.m in Sources */,
 				228943E61E6672B300082B9B /* ActionSheetDemoViewController.m in Sources */,
 				228943E01E6670F400082B9B /* TextFieldDemoViewController.m in Sources */,

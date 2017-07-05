@@ -8,6 +8,6 @@
 
 #import "KKBaseViewController.h"
 #import "KKBaseTableView.h"
-@interface KKBaseTableViewController : KKBaseViewController
+@interface KKTableViewController : KKBaseViewController
 @property (nonatomic, strong) KKBaseTableView* tableView;
 @end

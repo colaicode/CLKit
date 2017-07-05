@@ -26,12 +26,12 @@
     KKBaseTextField* tf1 = [KKBaseTextField textFieldWithPlaceholder:@"请输入密码"].tfTitleLeftView(@"密码",CGSizeMake(60, 40),10).tfSecureTextEntry(YES);
     [self.view addSubview:tf1];
     
-    KKBaseTextField* tf3 = [KKBaseTextField textFieldWithPlaceholder:@"请输入用户名"].tfImageLeftView(@"user",CGSizeMake(40, 40));
+    KKBaseTextField* tf3 = [KKBaseTextField textFieldWithPlaceholder:@"请输入用户名"].tfImageLeftView(@"user",CGSizeMake(40, 40),0);
     [self.view addSubview:tf3];
     
     KKBaseTextField* tf4 =
     [KKBaseTextField textFieldWithPlaceholder:@"请输入手机号"]
-    .tfImageLeftView(@"phone",CGSizeMake(40, 40))
+    .tfImageLeftView(@"phone",CGSizeMake(40, 40),10)
     .tfCreateToolbar()
     .tfTextEdgeInsets(UIEdgeInsetsMake(0, 5, 0, 5))
     .tfTextMaxLength(11)
@@ -40,27 +40,27 @@
     
     KKBaseTextField* tf5 =
     [KKBaseTextField textFieldWithPlaceholder:@"请选择地址"]
-    .tfImageLeftView(@"address",CGSizeMake(40, 40))
+    .tfImageLeftView(@"address",CGSizeMake(40, 40),20)
     .tfCreatePickerView()
-    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40));
+    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40),0);
     tf5.baseTextFieldDelegate = self;
     tf5.baseTextFieldDataSource = self;
     [self.view addSubview:tf5];
     
     KKBaseTextField* tf6 =
     [KKBaseTextField textFieldWithPlaceholder:@"请选择性别"]
-    .tfImageLeftView(@"gender",CGSizeMake(40, 40))
+    .tfImageLeftView(@"gender",CGSizeMake(40, 40),0)
     .tfCreateActionSheet(@"请选择性别",@"取消")
-    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40));
+    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40),0);
     tf6.baseTextFieldDelegate = self;
     tf6.baseTextFieldDataSource = self;
     [self.view addSubview:tf6];
     
     KKBaseTextField* tf7 =
     [KKBaseTextField textFieldWithPlaceholder:@"请选择日期"]
-    .tfImageLeftView(@"date",CGSizeMake(40, 40))
+    .tfImageLeftView(@"date",CGSizeMake(40, 40),0)
     .tfCreateDatePicker(UIDatePickerModeDate,@"yyyy-MM-dd")
-    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40));
+    .tfImageRightView(@"arrow_right",CGSizeMake(40, 40),20);
     tf7.baseTextFieldDelegate = self;
     [self.view addSubview:tf7];
 

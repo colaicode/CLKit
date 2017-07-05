@@ -44,6 +44,8 @@
 
 @interface KKBaseTextField()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,UIActionSheetDelegate>
 @property (nonatomic,assign) CGRect                 rightViewRect;
+@property (nonatomic,assign) CGFloat                leftPadding;
+@property (nonatomic,assign) CGFloat                rightPadding;
 @property (nonatomic,assign) UIEdgeInsets           textEdgeInsets;
 @property (nonatomic,assign) int                    maxLength;
 /**
@@ -68,13 +70,216 @@
 
 @implementation KKBaseTextField
 
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        _textEdgeInsets = UIEdgeInsetsZero;
+        self.delegate = self;
+        self.borderStyle = UITextBorderStyleNone;
+        self.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.tfFont(@14).tfBgColor([UIColor whiteColor]);
+    }
+    return self;
+}
+
++(instancetype)textField {
+    KKBaseTextField* textFiled = [[KKBaseTextField alloc] init];
+    return textFiled;
+}
+
++(instancetype)textFieldWithPlaceholder:(NSString *)placeholder {
+    KKBaseTextField* textFiled = [self textField];
+    textFiled.tfPlaceholder(placeholder);
+    return textFiled;
+}
+
+-(KKBaseTextField *(^)(CGRect ))tfFrame {
+    return ^KKBaseTextField*(CGRect frame){
+        self.frame = frame;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(NSString *))tfPlaceholder {
+    return ^KKBaseTextField*(NSString* placeholder){
+        self.placeholder = placeholder;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIColor *))tfPlaceholderColor {
+    return ^KKBaseTextField*(UIColor* color){
+        [self setValue:color forKeyPath:@"_placeholderLabel.textColor"];
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(BOOL))tfSecureTextEntry {
+    return ^KKBaseTextField*(BOOL secureTextEntry){
+        self.secureTextEntry = secureTextEntry;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIKeyboardType))tfKeyboardType {
+    return ^KKBaseTextField*(UIKeyboardType type){
+        self.keyboardType = type;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIColor *))tfBgColor {
+    return ^KKBaseTextField*(UIColor* color){
+        self.backgroundColor = color;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(id))tfFont {
+    return ^KKBaseTextField*(id font){
+        self.font = [font isKindOfClass:[UIFont class]]?font:[UIFont systemFontOfSize:[font floatValue]];
+        if ([self.leftView isKindOfClass:[KKBaseTextFieldLeftLabel class]]) {
+            KKBaseTextFieldLeftLabel* leftView = (KKBaseTextFieldLeftLabel*)self.leftView;
+            leftView.font = self.font;
+        }
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIColor *))tfTextColor {
+    return ^KKBaseTextField*(UIColor* color){
+        self.textColor = color;
+        if ([self.leftView isKindOfClass:[KKBaseTextFieldLeftLabel class]]) {
+            KKBaseTextFieldLeftLabel* leftView = (KKBaseTextFieldLeftLabel*)self.leftView;
+            leftView.textColor = color;
+        }
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UITextBorderStyle))tfBorderStyle {
+    return ^KKBaseTextField*(UITextBorderStyle style){
+        self.borderStyle = style;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(NSString *, CGSize, CGFloat))tfTitleLeftView {
+    return ^KKBaseTextField*(NSString* title,CGSize size,CGFloat titlePadding){
+        self.leftViewMode = UITextFieldViewModeAlways;
+        UILabel* leftView = [KKBaseTextFieldLeftLabel leftLabelWithSize:size padding:titlePadding text:title];
+        leftView.textColor = self.textColor;
+        leftView.font = self.font;
+        self.leftView = leftView;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(id, CGSize,CGFloat))tfImageLeftView {
+    return ^KKBaseTextField*(id image,CGSize size,CGFloat padding){
+        self.leftViewMode = UITextFieldViewModeAlways;
+        self.leftView = [self imageForLeftOrRightView:image size:size padding:padding];
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(id, CGSize,CGFloat))tfImageRightView {
+    return ^KKBaseTextField*(id image,CGSize size,CGFloat padding){
+        _rightViewRect.size = size;
+        self.rightViewMode = UITextFieldViewModeAlways;
+        self.rightView = [self imageForLeftOrRightView:image size:size padding:padding];
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIView*, CGFloat))tfRightView {
+    return ^KKBaseTextField*(UIView* rightView,CGFloat padding){
+        _rightViewRect.size = rightView.frame.size;
+        _rightPadding = padding;
+        self.rightViewMode = UITextFieldViewModeAlways;
+        self.rightView = rightView;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIEdgeInsets))tfTextEdgeInsets {
+    return ^KKBaseTextField*(UIEdgeInsets insets){
+        _textEdgeInsets = insets;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(int))tfTextMaxLength {
+    return ^KKBaseTextField*(int maxLength){
+        _maxLength = maxLength;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)())tfTextAutoSegment {
+    return ^KKBaseTextField*(){
+        _isAutoSegment = YES;
+        if (_maxLength != 0) {
+            _maxLength += _maxLength%DEFAULT_TEXT_MIN_LEN==0?_maxLength/DEFAULT_TEXT_MIN_LEN-1:_maxLength/DEFAULT_TEXT_MIN_LEN;
+        }
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)())tfCreateToolbar {
+    return ^KKBaseTextField*(){
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+        UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(textFieldDone)];
+        toolBar.items = @[space, done];
+        self.inputAccessoryView = toolBar;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)())tfCreatePickerView {
+    return ^KKBaseTextField*(){
+        self.inputView = self.pickerView;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(NSString *,NSString *))tfCreateActionSheet {
+    return ^KKBaseTextField*(NSString* title,NSString* cancelButtonTitle){
+        _actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        self.inputAccessoryView = _actionSheet;
+        return self;
+    };
+}
+
+-(KKBaseTextField *(^)(UIDatePickerMode, NSString *))tfCreateDatePicker {
+    return ^KKBaseTextField*(UIDatePickerMode mode,NSString* formatter){
+        self.datePickerView.datePickerMode = mode;
+        [self.formatter setDateFormat:formatter];
+        self.inputAccessoryView = self.datePickerView;
+        return self;
+    };
+}
+
+-(void)reloadPickerView {
+    [self.pickerView reloadAllComponents];
+}
+
+-(void)reloadActionSheet {
+    NSInteger buttons = [_baseTextFieldDataSource textFieldNumberOfButtonsInActionSheet:self];
+    for (int i = 0; i < buttons; i++) {
+        [_actionSheet addButtonWithTitle:[_baseTextFieldDataSource textFiled:self actionSheetTitleForIndex:i]];
+    }
+}
+
 #pragma mark --------------------private--------------------
-- (UIView*)imageForLeftOrRightView:(id)image size:(CGSize)size {
+- (UIView*)imageForLeftOrRightView:(id)image size:(CGSize)size padding:(CGFloat)padding {
     UIImage* img = [image isKindOfClass:[UIImage class]]?image:[UIImage imageNamed:image];
     UIImageView* imageView = [[UIImageView alloc] initWithImage:img];
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width+padding*2, size.height)];
     [view addSubview:imageView];
-    imageView.center = CGPointMake(size.width/2, size.height/2);
+    imageView.center = CGPointMake(view.frame.size.width/2, view.frame.size.height/2);
     return view;
 }
 
@@ -200,7 +405,7 @@
     int height = self.frame.size.height;
     int rigthRectWidth = _rightViewRect.size.width;
     int rigthRectHeight = _rightViewRect.size.height;
-    return CGRectMake(width-rigthRectWidth, (height-rigthRectHeight)/2, rigthRectWidth, rigthRectHeight);
+    return CGRectMake(width-rigthRectWidth-_rightPadding, (height-rigthRectHeight)/2, rigthRectWidth, rigthRectHeight);
 }
 
 -(CGRect)textRectForBounds:(CGRect)bounds {
@@ -217,200 +422,6 @@
     [super didMoveToSuperview];
     if(_pickerView) [self reloadPickerView];
     if(_actionSheet) [self reloadActionSheet];
-}
-
-#pragma mark --------------------public--------------------
--(instancetype)init {
-    self = [super init];
-    if (self) {
-        _textEdgeInsets = UIEdgeInsetsZero;
-        self.delegate = self;
-        self.borderStyle = UITextBorderStyleNone;
-        self.clearButtonMode = UITextFieldViewModeWhileEditing;
-        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        self.tfFont(@14).tfBgColor([UIColor whiteColor]);
-    }
-    return self;
-}
-
-+(instancetype)textField {
-    KKBaseTextField* textFiled = [[KKBaseTextField alloc] init];
-    return textFiled;
-}
-
-+(instancetype)textFieldWithPlaceholder:(NSString *)placeholder {
-    KKBaseTextField* textFiled = [self textField];
-    textFiled.tfPlaceholder(placeholder);
-    return textFiled;
-}
-
--(KKBaseTextField *(^)(CGRect ))tfFrame {
-    return ^KKBaseTextField*(CGRect frame){
-        self.frame = frame;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(NSString *))tfPlaceholder {
-    return ^KKBaseTextField*(NSString* placeholder){
-        self.placeholder = placeholder;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIColor *))tfPlaceholderColor {
-    return ^KKBaseTextField*(UIColor* color){
-        [self setValue:color forKeyPath:@"_placeholderLabel.textColor"];
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(BOOL))tfSecureTextEntry {
-    return ^KKBaseTextField*(BOOL secureTextEntry){
-        self.secureTextEntry = secureTextEntry;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIKeyboardType))tfKeyboardType {
-    return ^KKBaseTextField*(UIKeyboardType type){
-        self.keyboardType = type;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIColor *))tfBgColor {
-    return ^KKBaseTextField*(UIColor* color){
-        self.backgroundColor = color;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(id))tfFont {
-    return ^KKBaseTextField*(id font){
-        self.font = [font isKindOfClass:[UIFont class]]?font:[UIFont systemFontOfSize:[font floatValue]];
-        if ([self.leftView isKindOfClass:[KKBaseTextFieldLeftLabel class]]) {
-            KKBaseTextFieldLeftLabel* leftView = (KKBaseTextFieldLeftLabel*)self.leftView;
-            leftView.font = self.font;
-        }
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIColor *))tfTextColor {
-    return ^KKBaseTextField*(UIColor* color){
-        self.textColor = color;
-        if ([self.leftView isKindOfClass:[KKBaseTextFieldLeftLabel class]]) {
-            KKBaseTextFieldLeftLabel* leftView = (KKBaseTextFieldLeftLabel*)self.leftView;
-            leftView.textColor = color;
-        }
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UITextBorderStyle))tfBorderStyle {
-    return ^KKBaseTextField*(UITextBorderStyle style){
-        self.borderStyle = style;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(NSString *, CGSize, CGFloat))tfTitleLeftView {
-    return ^KKBaseTextField*(NSString* title,CGSize size,CGFloat titlePadding){
-        self.leftViewMode = UITextFieldViewModeAlways;
-        UILabel* leftView = [KKBaseTextFieldLeftLabel leftLabelWithSize:size padding:titlePadding text:title];
-        leftView.textColor = self.textColor;
-        leftView.font = self.font;
-        self.leftView = leftView;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(id, CGSize))tfImageLeftView {
-    return ^KKBaseTextField*(id image,CGSize size){
-        self.leftViewMode = UITextFieldViewModeAlways;
-        self.leftView = [self imageForLeftOrRightView:image size:size];
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(id, CGSize))tfImageRightView {
-    return ^KKBaseTextField*(id image,CGSize size){
-        _rightViewRect.size = size;
-        self.rightViewMode = UITextFieldViewModeAlways;
-        self.rightView = [self imageForLeftOrRightView:image size:size];;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIEdgeInsets))tfTextEdgeInsets {
-    return ^KKBaseTextField*(UIEdgeInsets insets){
-        _textEdgeInsets = insets;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(int))tfTextMaxLength {
-    return ^KKBaseTextField*(int maxLength){
-        _maxLength = maxLength;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)())tfTextAutoSegment {
-    return ^KKBaseTextField*(){
-        _isAutoSegment = YES;
-        if (_maxLength != 0) {
-            _maxLength += _maxLength%DEFAULT_TEXT_MIN_LEN==0?_maxLength/DEFAULT_TEXT_MIN_LEN-1:_maxLength/DEFAULT_TEXT_MIN_LEN;
-        }
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)())tfCreateToolbar {
-    return ^KKBaseTextField*(){
-        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
-        UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(textFieldDone)];
-        toolBar.items = @[space, done];
-        self.inputAccessoryView = toolBar;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)())tfCreatePickerView {
-    return ^KKBaseTextField*(){
-        self.inputView = self.pickerView;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(NSString *,NSString *))tfCreateActionSheet {
-    return ^KKBaseTextField*(NSString* title,NSString* cancelButtonTitle){
-        _actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-        self.inputAccessoryView = _actionSheet;
-        return self;
-    };
-}
-
--(KKBaseTextField *(^)(UIDatePickerMode, NSString *))tfCreateDatePicker {
-    return ^KKBaseTextField*(UIDatePickerMode mode,NSString* formatter){
-        self.datePickerView.datePickerMode = mode;
-        [self.formatter setDateFormat:formatter];
-        self.inputAccessoryView = self.datePickerView;
-        return self;
-    };
-}
-
--(void)reloadPickerView {
-    [self.pickerView reloadAllComponents];
-}
-
--(void)reloadActionSheet {
-    NSInteger buttons = [_baseTextFieldDataSource textFieldNumberOfButtonsInActionSheet:self];
-    for (int i = 0; i < buttons; i++) {
-        [_actionSheet addButtonWithTitle:[_baseTextFieldDataSource textFiled:self actionSheetTitleForIndex:i]];
-    }
 }
 
 @end

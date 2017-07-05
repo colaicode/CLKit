@@ -55,9 +55,11 @@
 /**
  image:可传image对象以及image名字字符串
  */
--(KKBaseTextField*(^)(id image,CGSize leftViewSize))tfImageLeftView;
+-(KKBaseTextField*(^)(id image,CGSize leftViewSize,CGFloat padding))tfImageLeftView;
 
--(KKBaseTextField*(^)(id image,CGSize rightViewSize))tfImageRightView;
+-(KKBaseTextField*(^)(id image,CGSize rightViewSize,CGFloat padding))tfImageRightView;
+
+-(KKBaseTextField*(^)(UIView* rightView,CGFloat padding))tfRightView;
 
 -(KKBaseTextField*(^)(UIEdgeInsets insets))tfTextEdgeInsets;
 
